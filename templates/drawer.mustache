@@ -1,0 +1,78 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template aiplacement_translate/drawer
+
+    Template to display the AI translation drawer.
+
+    Context variables required for this template:
+    * userid - User ID
+    * contextid - Context ID
+    * preferredlanguage - The user's saved preferred language (empty string if first use)
+    * languages - Array of {value, label, selected} objects for the language dropdown
+
+    Example context (json):
+    {
+        "userid": "1",
+        "contextid": "1",
+        "preferredlanguage": "Spanish",
+        "languages": [
+            {"value": "English", "label": "English", "selected": false},
+            {"value": "Spanish", "label": "Spanish", "selected": true}
+        ]
+    }
+}}
+<div class="ai-translate-drawer" id="ai-translate-drawer" aria-label={{#quote}}{{#str}} aidrawerlabel, aiplacement_translate {{/str}}{{/quote}} tabindex="-1" role="region">
+    <div class="ai-drawer-header">
+        <button id="ai-translate-drawer-close" class="btn ai-drawer-button" type="button" data-action="translate-content">
+            {{#pix}} e/cancel, core {{/pix}}
+            <span class="sr-only">{{#str}} closedrawer, core {{/str}}</span>
+        </button>
+    </div>
+    <div class="ai-translate-controls p-3">
+        <label for="ai-translate-language-select" class="form-label font-weight-bold">
+            {{#str}} selectlanguage, aiplacement_translate {{/str}}
+        </label>
+        <select id="ai-translate-language-select" class="form-control custom-select mb-3" data-action="translate-language-select">
+            {{#languages}}
+            <option value="{{value}}"{{#selected}} selected{{/selected}}>{{label}}</option>
+            {{/languages}}
+        </select>
+        <div class="small text-muted mb-2"
+             data-region="translate-selection-info"
+             data-string-selected="{{#str}} selectedtext, aiplacement_translate {{/str}}"
+             data-string-fullpage="{{#str}} fullpagecontent, aiplacement_translate {{/str}}">
+            {{#str}} fullpagecontent, aiplacement_translate {{/str}}
+        </div>
+        <button class="btn btn-primary btn-sm" type="button" data-action="translate-execute">
+            <span class="ai-translate-sparkles-icon">
+                {{#pix}} sparkles, aiplacement_translate {{/pix}}
+            </span>
+            <span class="ai-translate-sparkles-icon white d-none">
+                {{#pix}} sparkles-white, aiplacement_translate {{/pix}}
+            </span>
+            {{#str}} translate, aiplacement_translate {{/str}}
+        </button>
+    </div>
+    <div class="ai-translate-drawer-body" data-hasdata="0" data-cancelled="0" data-removepadding="0">
+    </div>
+</div>
+{{#js}}
+    require(['aiplacement_translate/placement'], function(AITranslate) {
+        const AI = new AITranslate({{userid}}, {{contextid}}, '{{preferredlanguage}}');
+    });
+{{/js}}

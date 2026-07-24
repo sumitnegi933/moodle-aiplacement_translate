@@ -1,0 +1,59 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template aiplacement_translate/response
+
+    Template to display the AI-translated content.
+
+    Context variables required for this template:
+    * content - The translated HTML content to display
+    * targetlanguage - The language the content was translated into
+
+    Example context (json):
+    {
+        "content": "<p>Translated content here</p>",
+        "targetlanguage": "Spanish"
+    }
+}}
+<section class="card mb-3">
+    <div class="card-body p-3">
+        <h3 class="h5 card-title d-inline">
+            {{#str}} translatedto, aiplacement_translate, {{targetlanguage}} {{/str}}
+        </h3>
+        <div class="card-text content mt-3">
+            <div id="ai-translate-response" class="mb-3">
+                {{{content}}}
+            </div>
+            <div class="ai-translate-response-watermark">
+                <small class="text-muted">
+                    {{#pix}} sparkles, aiplacement_translate {{/pix}}
+                    {{#str}} contentwatermark, core_ai {{/str}}
+                </small>
+            </div>
+            <div class="ai-translate-response-controls d-block pt-3">
+                <button class="btn btn-sm btn-outline-secondary" data-action="translate-regenerate">
+                    {{#pix}} a/refresh, core {{/pix}}
+                    {{#str}} regenerate, aiplacement_translate {{/str}}
+                </button>
+                <button class="btn btn-sm btn-outline-secondary" data-action="copytoclipboard" data-clipboard-target="#ai-translate-response">
+                    {{#pix}} e/copy, core {{/pix}}
+                    {{#str}} copy, aiplacement_translate {{/str}}
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

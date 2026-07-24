@@ -1,0 +1,92 @@
+/**
+ * Styles for aiplacement_translate
+ *
+ * @package    aiplacement_translate
+ * @copyright  2026 Sumit Negi <sumitnegi.933@gmail.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+/* Translate drawer */
+.ai-translate-drawer {
+    position: fixed;
+    top: 0;
+    right: -315px;
+    width: 315px;
+    height: 100%;
+    background-color: var(--bs-body-bg, #fff);
+    border-left: 1px solid var(--bs-border-color, #dee2e6);
+    overflow-y: auto;
+    z-index: 1050;
+    visibility: hidden;
+    transition: right 0.3s ease, visibility 0.3s ease;
+}
+
+.ai-translate-drawer.show {
+    right: 0;
+    visibility: visible;
+}
+
+/* Drawer header */
+.ai-translate-drawer .ai-drawer-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.ai-translate-drawer .ai-drawer-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: var(--bs-body-color, #343a40);
+}
+
+/* Controls section (language selector + translate button) */
+.ai-translate-controls .form-select,
+.ai-translate-controls .custom-select {
+    width: 100%;
+}
+
+/* Translate button (page-level) */
+.ai-translate-page-controls .btn .ai-translate-sparkles-icon.white {
+    display: none;
+}
+
+.ai-translate-page-controls .btn:hover .ai-translate-sparkles-icon,
+.ai-translate-page-controls .btn:focus .ai-translate-sparkles-icon {
+    display: none;
+}
+
+.ai-translate-page-controls .btn:hover .ai-translate-sparkles-icon.white,
+.ai-translate-page-controls .btn:focus .ai-translate-sparkles-icon.white {
+    display: inline;
+}
+
+/* Response area */
+#ai-translate-response {
+    font-size: 0.875em;
+    line-height: 1.6;
+}
+
+.ai-translate-response-controls button .icon {
+    margin-right: 0;
+}
+
+.ai-translate-response-watermark {
+    margin-top: 0.5rem;
+}
+
+/* Scrollbar styling */
+.ai-translate-drawer::-webkit-scrollbar {
+    width: 4px;
+}
+
+.ai-translate-drawer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ai-translate-drawer::-webkit-scrollbar-thumb {
+    background-color: var(--bs-secondary, #6c757d);
+    border-radius: 2px;
+}

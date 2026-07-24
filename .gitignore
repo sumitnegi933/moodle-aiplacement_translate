@@ -1,0 +1,96 @@
+# .gitignore for AI Translate Placement Plugin
+
+# ============================================
+# Dependencies
+# ============================================
+vendor/
+node_modules/
+composer.lock
+package-lock.json
+
+# ============================================
+# IDE & Editor Files
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# Test & Coverage
+# ============================================
+coverage/
+.phpunit.result.cache
+behat_work/
+moodledata/
+
+# ============================================
+# Build Artifacts (Optional - can commit if you want)
+# ============================================
+# Uncomment if you want to ignore build outputs
+# amd/build/
+
+# ============================================
+# CI/CD Artifacts
+# ============================================
+junit.xml
+behat-junit.xml
+checkstyle-report.xml
+phpstan-report.json
+test-results/
+*.log
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+.cache/
+.temp/
+
+# ============================================
+# Sensitive Information (NEVER commit)
+# ============================================
+.env
+.env.local
+credentials.json
+api-keys.txt
+secrets/
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+Thumbs.db
+*.exe
+
+# ============================================
+# Local Development
+# ============================================
+local-config.php
+debug.txt
+*.bak
+
+# ============================================
+# Docker
+# ============================================
+.docker/
+docker-compose.override.yml
+
+# ============================================
+# Documentation (only README.md in repo)
+# ============================================
+*.md
+!README.md
+
+# ============================================
+# Marketplace artifacts (optional)
+# ============================================
+# Keep screenshots but not large videos
+# docs/demo.mp4
