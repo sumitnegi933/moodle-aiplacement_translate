@@ -23,7 +23,7 @@ jobs:
         include:
           - php: '8.3'
             moodle-branch: 'MOODLE_502_STABLE'
-            database: mysql
+            database: mysqli
 
     steps:
       - name: Check out repository code
