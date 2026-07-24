@@ -47,11 +47,6 @@ jobs:
           sudo locale-gen en_AU.UTF-8
           echo "NVM_DIR=$HOME/.nvm" >> $GITHUB_ENV
 
-      - name: Fix MySQL 8 authentication plugin
-        run: |
-          mysql -h 127.0.0.1 -u root -e "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '';"
-          mysql -h 127.0.0.1 -u root -e "FLUSH PRIVILEGES;"
-
       - name: Install moodle-plugin-ci
         run: |
           moodle-plugin-ci install --plugin ./plugin --db-host=127.0.0.1
