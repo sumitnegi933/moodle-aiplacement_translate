@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-22.04
 
     services:
-      mariadb:
-        image: mariadb:10.4
+      mysql:
+        image: mysql:8.4
         env:
           MYSQL_USER: 'root'
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
@@ -24,7 +24,7 @@ jobs:
         include:
           - php: '8.3'
             moodle-branch: 'MOODLE_502_STABLE'
-            database: mariadb
+            database: mysql
 
     steps:
       - name: Check out repository code
