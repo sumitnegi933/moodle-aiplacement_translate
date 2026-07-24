@@ -38,7 +38,7 @@ A powerful Moodle plugin that enables AI-powered content translation on course p
 1. Clone or download the plugin to your Moodle installation:
    ```bash
    cd /path/to/moodle
-   git clone https://github.com/your-repo/moodle-aiplacement_translate.git public/ai/placement/translate
+   git clone https://github.com/sumitnegi933/moodle-aiplacement_translate.git public/ai/placement/translate
    ```
 
 2. Log in as an administrator and navigate to **Site administration → Notifications**
@@ -203,7 +203,7 @@ vendor/bin/behat --config=/path/to/behat.yml --tags=@aiplacement_translate
 
 ## Version Compatibility
 
-This plugin is designed for and tested on **Moodle 5.0+** only. It will not work on Moodle 4.7 or earlier versions because:
+This plugin is designed for and tested on **Moodle 5.2+** only. It will not work on Moodle 4.7 or earlier versions because:
 
 - The AI framework (`core_ai`) is not available in Moodle 4.7
 - The Modal static API may differ in earlier versions
@@ -223,7 +223,7 @@ If you attempt installation on Moodle 4.7 or earlier, you will encounter depende
 
 For bug reports, feature requests, or general support:
 
-1. **Check existing issues** — Visit the [plugin repository](https://github.com/your-repo/moodle-aiplacement_translate/issues)
+1. **Check existing issues** — Visit the [plugin repository](https://github.com/sumitnegi933/moodle-aiplacement_translate/issues)
 2. **Report new issues** — Include:
    - Moodle version
    - PHP version
